@@ -70,15 +70,15 @@ public class FilesController extends AbstractController {
 	@PreAuthorize("hasRole('PRODUCTS')")
 	@RequestMapping("/admin/files/downloads/{storeCode}/{fileName}.{extension}")
 	public @ResponseBody byte[] downloadProduct(@PathVariable final String storeCode, @PathVariable final String fileName, @PathVariable final String extension, HttpServletRequest request, HttpServletResponse response) throws Exception {
-
-		FileContentType fileType = FileContentType.PRODUCT_DIGITAL;
 		
+		FileContentType fileType = FileContentType.PRODUCT_DIGITAL;
+		System.out.println("Pull Request");
 		String fileNameAndExtension = new StringBuilder().append(fileName).append(".").append(extension).toString();
 		
 		// needs to query the new API
 		OutputContentFile file = contentService.getContentFile(storeCode, fileType, fileNameAndExtension);
 		
-		
+		System.out.println("Pull Request");
 		if(file!=null) {
 			response.setHeader("Content-Disposition", "attachment; filename=\"" + fileNameAndExtension + "\"");
 			return file.getFile().toByteArray();
