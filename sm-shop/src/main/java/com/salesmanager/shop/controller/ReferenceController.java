@@ -67,6 +67,7 @@ public class ReferenceController {
 	@RequestMapping(value={"/admin/reference/provinces.html","/shop/reference/provinces.html"}, method=RequestMethod.POST)
 	public @ResponseBody ResponseEntity<String> getProvinces(HttpServletRequest request, HttpServletResponse response) {
 		System.out.println("changes");
+		System.out.println("Pull Request");
 		String countryCode = request.getParameter("countryCode");
 		String lang = request.getParameter("lang");
 		LOGGER.debug("Province Country Code " + countryCode);
@@ -173,7 +174,7 @@ public class ReferenceController {
 	@RequestMapping(value={"/shop/reference/creditCardDates.html"}, method=RequestMethod.GET)
 	public @ResponseBody ResponseEntity<String> getCreditCardDates(HttpServletRequest request, HttpServletResponse response) {
 		
-
+		System.out.println("Pull Request");
 		List<String> years = null;
 		String serialized = null;
 		try {
@@ -218,7 +219,7 @@ public class ReferenceController {
 	@RequestMapping(value={"/shop/reference/monthsOfYear.html"}, method=RequestMethod.GET)
 	public @ResponseBody ResponseEntity<String> getMonthsOfYear(HttpServletRequest request, HttpServletResponse response) {
 		
-
+		System.out.println("Pull Request");
 		List<String> days = null;
 		String serialized = null;
 		
